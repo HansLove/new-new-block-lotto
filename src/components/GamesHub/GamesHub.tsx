@@ -151,7 +151,7 @@ const GamesHub = () => {
           <p className="mx-auto max-w-3xl text-xl text-slate-300">
             Experience the power of true randomness through our collection of interactive games. Each game demonstrates
             the cryptographic verification and unpredictability that makes Caos Engine the most reliable randomness
-            platform.
+            platform
           </p>
         </div>
       </div>

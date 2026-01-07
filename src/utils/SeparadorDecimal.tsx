@@ -8,7 +8,7 @@ export const SeparadorDecimal=(num:any)=>{
     }
          
 }
-const EliminarComas = (str: any) => {
+export const EliminarComas = (str: any) => {
     try {
       return str.replace(/,/g, ''); // Remover todas las comas
     } catch (error) {

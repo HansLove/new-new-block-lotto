@@ -45,7 +45,7 @@ export default function TopMiningPoolsChart() {
             <CartesianGrid strokeDasharray="3 3" stroke="#2d2d44" />
             <XAxis dataKey="name" stroke="#ccc" />
             <YAxis stroke="#ccc" unit=" PH/s" />
-            <Tooltip formatter={value => `${value} PH/s`} />
+            <Tooltip formatter={(value: number) => `${value} PH/s`} />
             <Bar dataKey="hashrate" fill="#a8dadc" />
           </BarChart>
         </ResponsiveContainer>

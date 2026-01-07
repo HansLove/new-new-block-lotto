@@ -59,7 +59,7 @@ export const generateHexSeed = (): string => {
   return seed;
 };
 
-const isValidHexSeed = (seed: string): boolean => {
+export const isValidHexSeed = (seed: string): boolean => {
   // Must be exactly 8 hex characters (Go's hex.DecodeString requires even length)
   return /^[0-9a-fA-F]{8}$/.test(seed);
 };

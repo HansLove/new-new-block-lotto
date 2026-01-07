@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import io, { Socket } from 'socket.io-client';
+import io from 'socket.io-client';
 import { API_URL } from '@/utils/Rutes';
 import {
   fetchUserTickets,
@@ -42,10 +42,25 @@ interface BlockMinedEvent {
   btcAddress: string;
 }
 
-export const useLotto = () => {
+interface UseLottoReturn {
+  tickets: LottoTicket[];
+  stats: SystemStats | null;
+  socket: ReturnType<typeof io> | null;
+  isConnected: boolean;
+  loading: boolean;
+  error: string | null;
+  refreshTickets: () => Promise<void>;
+  getTicketDetail: (ticketId: string) => Promise<LottoTicket | null>;
+  getTicketAttempts: (ticketId: string, limit?: number, skip?: number) => Promise<{ attempts: LottoAttempt[]; pagination: any } | null>;
+  requestHighEntropyAttempt: (ticket: LottoTicket, stars?: number, seed?: string) => Promise<EntropyCompleted>;
+  highEntropyPending: Record<string, boolean>;
+  highEntropyResults: Record<string, EntropyCompleted | null>;
+}
+
+export const useLotto = (): UseLottoReturn => {
   const [tickets, setTickets] = useState<LottoTicket[]>([]);
   const [stats, setStats] = useState<SystemStats | null>(null);
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [socket, setSocket] = useState<ReturnType<typeof io> | null>(null);
   const [isConnected, setIsConnected] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

@@ -264,7 +264,7 @@ export default function TicketDetail() {
           >
             <h3 className="mb-4 text-lg font-semibold text-white">Recent Attempts</h3>
             <div className="space-y-3">
-              {attempts.slice(0, 5).map((attempt, index) => (
+              {attempts.slice(0, 5).map((attempt) => (
                 <div key={attempt.id} className="rounded-lg bg-slate-800/50 p-4">
                   <div className="flex items-center justify-between">
                     <div>

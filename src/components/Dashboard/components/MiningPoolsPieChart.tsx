@@ -75,7 +75,7 @@ export default function MiningPoolsPieChart() {
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Tooltip formatter={val => `${val}%`} />
+          <Tooltip formatter={(val: number) => `${val}%`} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

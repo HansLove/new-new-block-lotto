@@ -8,6 +8,9 @@ import {
   type EntropyCompleted,
 } from './entropy';
 
+// Re-export types that are used by consumers
+export type { EntropyCompleted, LowEntropyResponse };
+
 export interface LottoTicket {
   id: string;
   ticketId: string;
@@ -42,6 +45,7 @@ export interface SystemStats {
   totalAttempts: number;
   totalBlocksMined: number;
   lastBlockHeight: number | null;
+  difficulty?: string;
 }
 
 export interface CreateTicketRequest {
